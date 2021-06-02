@@ -51,58 +51,61 @@ class RoomBooking:
         # ========logo==============
         img2 = Image.open(
             r"images/logo.png")
-        img2 = img2.resize((60, 60), Image.ANTIALIAS)
+        img2 = img2.resize((int(0.053*w1), int(0.124*h1)), Image.ANTIALIAS)
         self.photoimg2 = ImageTk.PhotoImage(img2)
 
         lblimg = Label(self.root, image=self.photoimg2, bd=2, relief=RIDGE)
-        lblimg.place(x=0, y=0, width=80, height=60)
+        lblimg.place(relx=0, rely=0, width=0.070*w1, height=0.124*h1)
 
         # =============labelframe==========
         labelFrameLeftSide = LabelFrame(self.root, bd=2, relief=RIDGE, text="Booking Details", font=(
-            "times new roman", 17, "bold"), padx=2,)
-        labelFrameLeftSide.place(x=5, y=60, width=370, height=390)
+            "times new roman", int(0.015*w1), "bold"), padx=2,)
+        labelFrameLeftSide.place(relx=0.0044, rely=0.124, width=0.332*w1, height=0.866*h1)
+        labelFrameLeftSide.update()
+        w2, h2 = labelFrameLeftSide.winfo_width(), labelFrameLeftSide.winfo_height()
+        # 375 420
 
         # =========labels and entries========
         # Customer Id
         lbl_cust_id = Label(labelFrameLeftSide, text="Customer ID", font=(
-            "times new roman", 11, "bold"), padx=2, pady=6)
-        lbl_cust_id.grid(row=0, column=0, sticky=W)
+            "times new roman", int(0.0098*w1), "bold"))
+        lbl_cust_id.place(relx=0, rely=0.013)
 
-        entry_id = ttk.Entry(labelFrameLeftSide, width=19, textvariable=self.var_id, font=(
-            "arial", 11))
-        entry_id.grid(row=0, column=1, sticky=W)
+        entry_id = ttk.Entry(labelFrameLeftSide, width=int(0.0168*w1), textvariable=self.var_id, font=(
+            "arial", int(0.0098*w1)))
+        entry_id.place(relx=0.31, rely=0.013)
 
         # FetchData Button
         btnFetch = Button(labelFrameLeftSide, text="Fetch", command=self.Fetch_Id, font=(
-            "arial", 10, "bold"), bg="black", fg='gold', width=8)
-        btnFetch.place(x=280, y=1)
+            "arial", int(0.0088*w1), "bold"), bg="black", fg='gold', width=int(0.008*w1))
+        btnFetch.place(relx=0.78, rely=0.01)
 
         # Booking No
         lbl_booking_no = Label(labelFrameLeftSide, text="Booking No.", font=(
-            "times new roman", 11, "bold"), padx=2, pady=6)
-        lbl_booking_no.grid(row=1, column=0, sticky=W)
+            "times new roman", int(0.0098*w1), "bold"))
+        lbl_booking_no.place(relx=0, rely=0.095)
 
         entry_book_no = ttk.Entry(labelFrameLeftSide, width=10, textvariable=self.var_book_no, font=(
-            "arial", 11),state="readonly")
-        entry_book_no.grid(row=1, column=1, sticky=W)
+            "arial", int(0.0098*w1)),state="readonly")
+        entry_book_no.place(relx=0.31, rely=0.095)
 
         # Customer Name
         lbl_cust_name = Label(labelFrameLeftSide, text="Customer Name", font=(
-            "times new roman", 11, "bold"), padx=2, pady=6)
-        lbl_cust_name.grid(row=2, column=0, sticky=W)
+            "times new roman", int(0.0098*w1), "bold"))
+        lbl_cust_name.place(relx=0, rely=0.18)
 
-        entry_name = ttk.Entry(labelFrameLeftSide, width=29, textvariable=self.var_name, font=(
-            "arial", 11),state="readonly")
-        entry_name.grid(row=2, column=1, sticky=W)
+        entry_name = ttk.Entry(labelFrameLeftSide, width=int(0.025*w1), textvariable=self.var_name, font=(
+            "arial", int(0.0098*w1)),state="readonly")
+        entry_name.place(relx=0.31, rely=0.18)
 
         # Check-in date
         check_in_date = Label(labelFrameLeftSide, text="Check-In",
-                              font=("arial", 10, "bold"), padx=2, pady=6)
-        check_in_date.grid(row=3, column=0, sticky=W)
+                              font=("arial", int(0.0092*w1), "bold"))
+        check_in_date.place(relx=0, rely=0.265)
 
-        txtcheck_in_date = DateEntry(labelFrameLeftSide, width=12, background='darkblue', textvariable=self.var_checkin,
-                                     date_pattern='dd/mm/yyyy', font=("arial", 10), foreground='white', borderwidth=2)
-        txtcheck_in_date.grid(row=3, column=1, sticky=W)
+        txtcheck_in_date = DateEntry(labelFrameLeftSide, width=int(0.009*w1), background='darkblue', textvariable=self.var_checkin,
+                                     date_pattern='dd/mm/yyyy', font=("arial", int(0.0088*w1)), foreground='white', borderwidth=2)
+        txtcheck_in_date.place(relx=0.18, rely=0.265)
 
         # txtcheck_in_date = ttk.Entry(
         #     labelFrameLeftSide, width=30, textvariable=self.var_checkin, font=("arial", 12))
@@ -110,21 +113,21 @@ class RoomBooking:
 
         # Check-out date
         check_out_date = Label(labelFrameLeftSide, text="Check-Out",
-                               font=("arial", 10, "bold"), padx=2, pady=6)
-        check_out_date.grid(row=4, column=0, sticky=W)
+                               font=("arial", int(0.0092*w1), "bold"))
+        check_out_date.place(relx=0.50, rely=0.265)
 
-        txtcheck_out_date = DateEntry(labelFrameLeftSide, width=12, background='darkblue', textvariable=self.var_checkout,
-                                      date_pattern='dd/mm/yyyy', font=("arial", 10), foreground='white', borderwidth=2)
-        txtcheck_out_date.grid(row=4, column=1, sticky=W)
+        txtcheck_out_date = DateEntry(labelFrameLeftSide, width=int(0.009*w1), background='darkblue', textvariable=self.var_checkout,
+                                      date_pattern='dd/mm/yyyy', font=("arial", int(0.0088*w1)), foreground='white', borderwidth=2)
+        txtcheck_out_date.place(relx=0.71, rely=0.265)
 
-        # txtcheck_out_date = ttk.Entry(
-        #     labelFrameLeftSide, width=30, textvariable=self.var_checkout, font=("arial", 12))
-        # txtcheck_out_date.grid(row=2, column=1)
+        # # txtcheck_out_date = ttk.Entry(
+        # #     labelFrameLeftSide, width=30, textvariable=self.var_checkout, font=("arial", 12))
+        # # txtcheck_out_date.grid(row=2, column=1)
 
         # Room type
         label_Roomtype = Label(labelFrameLeftSide, text="Room Type",
-                               font=("arial", 10, "bold"), padx=2, pady=6)
-        label_Roomtype.grid(row=5, column=0, sticky=W)
+                               font=("arial", int(0.0092*w1), "bold"))
+        label_Roomtype.place(relx=0, rely=0.35)
 
         # conn = mysql.connector.connect(host="localhost", user="root", password="Admin@123",
         #                                database="hotel_managment", auth_plugin='mysql_native_password')
@@ -134,15 +137,15 @@ class RoomBooking:
         roomtypes = my_cursor.fetchall()
 
         combo_Roomtype = ttk.Combobox(labelFrameLeftSide, textvariable=self.var_roomtype, font=(
-            "arial", 10, "bold"), width=12, state="readonly")
+            "arial", int(0.0088*w1), "bold"), width=int(0.009*w1), state="readonly")
         combo_Roomtype["value"] = roomtypes
         combo_Roomtype.current(0)
-        combo_Roomtype.grid(row=5, column=1, sticky=W)
+        combo_Roomtype.place(relx=0.22, rely=0.35)
 
         # Available Room
-        lblAvailableRoom = Label(labelFrameLeftSide, text="Room",
-                                 font=("arial", 10, "bold"), padx=2, pady=6)
-        lblAvailableRoom.place(x=225, y=130)
+        lblAvailableRoom = Label(labelFrameLeftSide, text="Room No.",
+                                 font=("arial", int(0.0092*w1), "bold"))
+        lblAvailableRoom.place(relx=0.50, rely=0.35)
 
         # txtAvailableRoom = ttk.Entry(
         #     labelFrameLeftSide, width=30, textvariable=self.var_roomavailable, font=("arial", 12))
@@ -155,137 +158,149 @@ class RoomBooking:
         rows = my_cursor.fetchall()
 
         combo_RoomNo = ttk.Combobox(labelFrameLeftSide, textvariable=self.var_roomavailable, font=(
-            "arial", 10, "bold"), width=6, state="readonly")
+            "arial", int(0.0088*w1), "bold"), width=int(0.0053*w1), state="readonly")
         combo_RoomNo["value"] = rows
         combo_RoomNo.current(0)
-        combo_RoomNo.place(x=273, y=136)
+        combo_RoomNo.place(relx=0.71, rely=0.35)
 
-        # Room Price
-        lblRoomPrice = Label(labelFrameLeftSide, text="Price",
-                                 font=("arial", 10, "bold"), padx=2, pady=6)
-        lblRoomPrice.place(x=225, y=163)
+        # Room Charges
+        lblRoomPrice = Label(labelFrameLeftSide, text="Room Charges",
+                                 font=("arial", int(0.0092*w1), "bold"))
+        lblRoomPrice.place(relx=0, rely=0.435)
 
         combo_Search = ttk.Combobox(labelFrameLeftSide, textvariable=self.var_room_price, font=(
-            "arial", 10, "bold"), width=9, state="readonly")
+            "arial", int(0.0088*w1), "bold"), width=int(0.007*w1), state="readonly")
         combo_Search["value"] = ("2000","2500","3000","3500","4000","4500","5000","5500","6000","6500","7000","7500","8000","8500","9000","9500","10000")
         combo_Search.current(0)
-        combo_Search.place(x=270, y=168)
+        combo_Search.place(relx=0.28, rely=0.435)
 
-        # Meal
-        lblMeal = Label(labelFrameLeftSide, text="Meal Price",
-                        font=("arial", 10, "bold"), padx=2, pady=6)
-        lblMeal.grid(row=6, column=0, sticky=W)
+        # Meal Charges
+        lblMeal = Label(labelFrameLeftSide, text="Meal Charges",
+                        font=("arial", int(0.0092*w1), "bold"))
+        lblMeal.place(relx=0.50, rely=0.435)
 
         txtMeal = ttk.Entry(
-            labelFrameLeftSide, width=13, textvariable=self.var_meal, font=("arial", 10))
-        txtMeal.grid(row=6, column=1, sticky=W)
+            labelFrameLeftSide, width=int(0.01*w1), textvariable=self.var_meal, font=("arial", int(0.0088*w1),"bold"))
+        txtMeal.place(relx=0.76, rely=0.435)
 
         # Other
-        lblOther = Label(labelFrameLeftSide, text="Other",
-                        font=("arial", 10, "bold"), padx=2, pady=6)
-        lblOther.place(x=215,y=196)
+        lblOther = Label(labelFrameLeftSide, text="Other Charges",
+                        font=("arial", int(0.0092*w1), "bold"))
+        lblOther.place(relx=0,rely=0.52)
 
         txtOther = ttk.Entry(
-            labelFrameLeftSide, width=13, textvariable=self.var_othercharge, font=("arial", 10))
-        txtOther.place(x=260,y=200)
+            labelFrameLeftSide, width=int(0.0115*w1), textvariable=self.var_othercharge, font=("arial", int(0.0088*w1),"bold"))
+        txtOther.place(relx=0.27,rely=0.52)
+
+        # separator
+        separator = ttk.Separator(labelFrameLeftSide, orient='horizontal')
+        separator.place(relx=0, rely=0.595, width=0.98*w2, height=0.010*h2)
 
         # Room Charge
-        lblNoOfDays = Label(labelFrameLeftSide, text="Room Charge",
-                            font=("arial", 10, "bold"), padx=2, pady=6)
-        lblNoOfDays.grid(row=7, column=0, sticky=W)
+        lblNoOfDays = Label(labelFrameLeftSide, text="Room Price",
+                            font=("arial", int(0.0092*w1), "bold"))
+        lblNoOfDays.place(relx=0, rely=0.610)
 
         txtNoOfDays = ttk.Entry(
-            labelFrameLeftSide, width=16, textvariable=self.var_roomcharge, font=("arial", 10),state="readonly")
-        txtNoOfDays.grid(row=7, column=1,sticky=W)
+            labelFrameLeftSide, width=int(0.012*w1), textvariable=self.var_roomcharge, font=("arial", int(0.0088*w1),"bold"),state="readonly")
+        txtNoOfDays.place(relx=0.25, rely=0.610)
 
         # Days
-        lblSubTotal = Label(labelFrameLeftSide, text="Days",
-                            font=("arial", 10, "bold"), padx=2, pady=6)
-        lblSubTotal.place(x=235, y=227)
+        lblSubTotal = Label(labelFrameLeftSide, text="Days Stayed",
+                            font=("arial", int(0.0092*w1), "bold"))
+        lblSubTotal.place(relx=0.55, rely=0.610)
 
         txtSubTotal = ttk.Entry(
-            labelFrameLeftSide, width=10, textvariable=self.var_noofdays, font=("arial", 10),state="readonly")
-        txtSubTotal.place(x=280, y=232)
+            labelFrameLeftSide, width=int(0.0088*w1), textvariable=self.var_noofdays, font=("arial", int(0.0088*w1),"bold"),state="readonly")
+        txtSubTotal.place(relx=0.79, rely=0.610)
 
         # Total Cost
-        lblTotalCost = Label(labelFrameLeftSide, text="Total Cost",
-                             font=("arial", 10, "bold"), padx=2, pady=6)
-        lblTotalCost.grid(row=8, column=0, sticky=W)
+        lblTotalCost = Label(labelFrameLeftSide, text="Total Price",
+                             font=("arial", int(0.0092*w1), "bold"))
+        lblTotalCost.place(relx=0, rely=0.695)
 
         txtTotalCost = ttk.Entry(
-            labelFrameLeftSide, width=16, textvariable=self.var_total, font=("arial", 10),state="readonly")
-        txtTotalCost.grid(row=8, column=1,sticky=W)
+            labelFrameLeftSide, width=int(0.014*w1), textvariable=self.var_total, font=("arial", int(0.0088*w1),"bold"),state="readonly")
+        txtTotalCost.place(relx=0.25, rely=0.695)
 
         # =========bill & total button===============
         btnCalc = Button(labelFrameLeftSide, text="Calculate", command=self.total, font=(
-            "arial", 10, "bold"), bg="black", fg='gold', width=12)
-        btnCalc.grid(row=10, column=0, padx=2, sticky=W)
+            "arial", int(0.0088*w1), "bold"), bg="black", fg='gold', width=int(0.01*w1))
+        btnCalc.place(relx=0.01, rely=0.77)
 
         btnBill = Button(labelFrameLeftSide, text="Generate Bill", command=self.Bill, font=(
-            "arial", 10, "bold"), bg="black", fg='gold', width=12)
-        btnBill.grid(row=10, column=1, padx=2, sticky=W)
+            "arial", int(0.0088*w1), "bold"), bg="black", fg='gold', width=int(0.015*w1))
+        btnBill.place(relx=0.30, rely=0.77)
+
+         # separator
+        separator = ttk.Separator(labelFrameLeftSide, orient='horizontal')
+        separator.place(relx=0, rely=0.85, width=0.98*w2, height=0.010*h2)
 
         # =============buttons==============
         btn_frame = LabelFrame(labelFrameLeftSide, bd=2, relief=RIDGE)
-        btn_frame.place(x=0, y=325, width=360, height=30)
+        btn_frame.place(relx=0, rely=0.86, width=0.96*w2, height=0.12*h2)
+        # 360 30
 
         btnAdd = Button(btn_frame, text="Add", command=self.add_data, font=(
-            "arial", 10, "bold"), bg="black", fg='gold', width=9)
-        btnAdd.grid(row=0, column=0, padx=3)
+            "arial", int(0.0095*w1), "bold"), bg="black", fg='gold', width=int(0.008*w1), height=int(0.006*h2))
+        btnAdd.place(relx=0, rely=0)
 
         btnUpdate = Button(btn_frame, text="Update", command=self.update, font=(
-            "arial", 10, "bold"), bg="black", fg='gold', width=9)
-        btnUpdate.grid(row=0, column=1, padx=3)
+            "arial", int(0.0095*w1), "bold"), bg="black", fg='gold', width=int(0.008*w1), height=int(0.006*h2))
+        btnUpdate.place(relx=0.25, rely=0)
 
         btnDelete = Button(btn_frame, text="Delete", command=self.delete_booking, font=(
-            "arial", 10, "bold"), bg="black", fg='gold', width=9)
-        btnDelete.grid(row=0, column=2, padx=3)
+            "arial", int(0.0095*w1), "bold"), bg="black", fg='gold', width=int(0.008*w1), height=int(0.006*h2))
+        btnDelete.place(relx=0.50, rely=0)
 
         btnReset = Button(btn_frame, text="Reset", command=self.reset, font=(
-            "arial", 10, "bold"), bg="black", fg='gold', width=9)
-        btnReset.grid(row=0, column=3, padx=3)
+            "arial", int(0.0095*w1), "bold"), bg="black", fg='gold', width=int(0.008*w1), height=int(0.006*h2))
+        btnReset.place(relx=0.75, rely=0)
 
         # =============right side image====================
         img3 = Image.open(
             r"images/room2.jpg")
-        img3 = img3.resize((280, 180), Image.ANTIALIAS)
+        img3 = img3.resize((int(0.248*w1), int(0.371*h1)), Image.ANTIALIAS)
         self.photoimg3 = ImageTk.PhotoImage(img3)
 
         lblimg = Label(self.root, image=self.photoimg3, bd=0, relief=RIDGE)
-        lblimg.place(x=830, y=65, width=280, height=180)
+        lblimg.place(relx=0.734, rely=0.134, width=0.248*w1, height=0.371*h1)
 
         # ==========table frame search system=============
         table_Frame = LabelFrame(self.root, bd=2, relief=RIDGE, text="View Details & Search", font=(
-            "times new roman", 17, "bold"), padx=2,)
-        table_Frame.place(x=385, y=250, width=730, height=200)
+            "times new roman", int(0.015*w1), "bold"))
+        table_Frame.place(relx=0.34, rely=0.515, width=0.655*w1, height=0.474*h1)
+        table_Frame.update()
+        w3, h3 = table_Frame.winfo_width(), table_Frame.winfo_height()
+        # 740 230
 
         lbl_SearchBar = Label(table_Frame, text="Search By:", font=(
-            "arial", 11, "bold"), bg='red', fg='white')
-        lbl_SearchBar.grid(row=0, column=0, sticky=W, padx=2)
+            "arial", int(0.0097*w1), "bold"), bg='red', fg='white')
+        lbl_SearchBar.place(relx=0.005, rely=0.02)
 
         self.search_var = StringVar()
         combo_Search = ttk.Combobox(table_Frame, textvariable=self.search_var, font=(
-            "arial", 11, "bold"), width=15, state="readonly")
-        combo_Search["value"] = ("CNIC_Passport","BookID","Room")
+            "arial", int(0.0097*w1), "bold"), width=int(0.0133*w1), state="readonly")
+        combo_Search["value"] = ("BookID","CNIC_Passport","Room")
         combo_Search.current(0)
-        combo_Search.grid(row=0, column=1, padx=3)
+        combo_Search.place(relx=0.115, rely=0.02)
 
         self.search_text = StringVar()
         txt_Search = ttk.Entry(
-            table_Frame, width=30, textvariable=self.search_text, font=("arial", 11))
-        txt_Search.grid(row=0, column=2, padx=3)
+            table_Frame, width=int(0.0265*w1), textvariable=self.search_text, font=("arial", int(0.0097*w1)))
+        txt_Search.place(relx=0.3, rely=0.02)
 
         btnSearch = Button(table_Frame, text="Search", command=self.search, font=(
-            "arial", 11, "bold"), bg="black", fg='gold', width=10)
-        btnSearch.grid(row=0, column=3, padx=3)
+            "arial", int(0.0097*w1), "bold"), bg="green", fg='white', width=int(0.0088*w1))
+        btnSearch.place(relx=0.60, rely=0)
 
         btnShowAll = Button(table_Frame, text="Show All", command=self.fetch_data, font=(
-            "arial", 11, "bold"), bg="black", fg='gold', width=10)
-        btnShowAll.grid(row=0, column=4, padx=3)
+            "arial", int(0.0097*w1), "bold"), bg="green", fg='white', width=int(0.0088*w1))
+        btnShowAll.place(relx=0.72, rely=0)
 
         # ===============show booking table==============
         details_table = LabelFrame(table_Frame, bd=2, relief=RIDGE)
-        details_table.place(x=0, y=40, width=725, height=130)
+        details_table.place(relx=0, rely=0.13, width=0.99*w3, height=0.74*h3)
 
         scroll_x = ttk.Scrollbar(details_table, orient=HORIZONTAL)
         scroll_y = ttk.Scrollbar(details_table, orient=VERTICAL)
