@@ -300,7 +300,7 @@ class RoomBooking:
 
         # ===============show booking table==============
         details_table = LabelFrame(table_Frame, bd=2, relief=RIDGE)
-        details_table.place(relx=0, rely=0.13, width=0.99*w3, height=0.74*h3)
+        details_table.place(relx=0, rely=0.16, width=0.99*w3, height=0.74*h3)
 
         scroll_x = ttk.Scrollbar(details_table, orient=HORIZONTAL)
         scroll_y = ttk.Scrollbar(details_table, orient=VERTICAL)
@@ -488,6 +488,11 @@ class RoomBooking:
 
     # ===========All data fetch=============
     def Fetch_Id(self):
+        w, h = root.winfo_screenwidth(), root.winfo_screenheight()
+        # w,h=1000,600
+        w1 = int(0.8275*w)
+        h1 = int(0.632*h)
+
         if self.var_id.get() == "":
             messagebox.showerror(
                 "Error", "Please enter CNIC/Passport No.", parent=self.root)
@@ -512,16 +517,18 @@ class RoomBooking:
                 conn.close()
 
                 showDataFrame = Frame(self.root, bd=4, relief=RIDGE, padx=2)
-                showDataFrame.place(x=385, y=65, width=440, height=180)
+                showDataFrame.place(relx=0.340, rely=0.134, width=0.389*w1, height=0.371*h1)
+                # 440 180
+
 
                 # Label Name
                 lblName = Label(showDataFrame, text="Name:",
-                                font=("arial", 12, "bold"))
-                lblName.place(x=0, y=0)
+                                font=("arial", int(0.01*w1), "bold"))
+                lblName.place(relx=0, rely=0)
 
                 lbl = Label(showDataFrame, text=row,
-                            font=("arial", 12))
-                lbl.place(x=55, y=0)
+                            font=("arial", int(0.01*w1)))
+                lbl.place(relx=0.125, rely=0)
 
                 # Label Gender
                 # conn = mysql.connector.connect(host="localhost", user="root", password="Admin@123",
@@ -534,12 +541,12 @@ class RoomBooking:
                 row = my_cursor.fetchone()
 
                 lblGender = Label(showDataFrame, text="Gender:",
-                                  font=("arial", 12, "bold"))
-                lblGender.place(x=0, y=25)
+                                  font=("arial", int(0.01*w1), "bold"))
+                lblGender.place(relx=0, rely=0.139)
 
                 lbl2 = Label(showDataFrame, text=row,
-                             font=("arial", 12))
-                lbl2.place(x=70, y=25)
+                             font=("arial", int(0.01*w1)))
+                lbl2.place(relx=0.159, rely=0.139)
 
                 # Label Age
                 # conn = mysql.connector.connect(host="localhost", user="root", password="Admin@123",
@@ -552,12 +559,12 @@ class RoomBooking:
                 row = my_cursor.fetchone()
 
                 lblAge = Label(showDataFrame, text="Age:",
-                               font=("arial", 12, "bold"))
-                lblAge.place(x=0, y=50)
+                               font=("arial", int(0.01*w1), "bold"))
+                lblAge.place(relx=0, rely=0.278)
 
                 lbl3 = Label(showDataFrame, text=row,
-                             font=("arial", 12))
-                lbl3.place(x=40, y=50)
+                             font=("arial", int(0.01*w1)))
+                lbl3.place(relx=0.09, rely=0.278)
 
 
                 # Label Email
@@ -571,12 +578,12 @@ class RoomBooking:
                 row = my_cursor.fetchone()
 
                 lblEmail = Label(showDataFrame, text="Email:",
-                                 font=("arial", 12, "bold"))
-                lblEmail.place(x=0, y=75)
+                                 font=("arial", int(0.01*w1), "bold"))
+                lblEmail.place(relx=0, rely=0.417)
 
                 lbl4 = Label(showDataFrame, text=row,
-                             font=("arial", 12))
-                lbl4.place(x=55, y=75)
+                             font=("arial", int(0.01*w1)))
+                lbl4.place(relx=0.125, rely=0.417)
 
                 # Label CNIC/Passport No.
                 # conn = mysql.connector.connect(host="localhost", user="root", password="Admin@123",
@@ -589,12 +596,12 @@ class RoomBooking:
                 row = my_cursor.fetchone()
 
                 lblEmail = Label(showDataFrame, text="CNIC/Passport:",
-                                 font=("arial", 11, "bold"))
-                lblEmail.place(x=0, y=100)
+                                 font=("arial", int(0.01*w1), "bold"))
+                lblEmail.place(relx=0, rely=0.556)
 
                 lbl5 = Label(showDataFrame, text=row,
-                             font=("arial", 11))
-                lbl5.place(x=120, y=100)
+                             font=("arial", int(0.01*w1)))
+                lbl5.place(relx=0.273, rely=0.556)
 
                 # Label Nationaluty
                 # conn = mysql.connector.connect(host="localhost", user="root", password="Admin@123",
@@ -607,12 +614,12 @@ class RoomBooking:
                 row = my_cursor.fetchone()
 
                 lblNationality = Label(showDataFrame, text="Nationality:",
-                                       font=("arial", 12, "bold"))
-                lblNationality.place(x=0, y=125)
+                                       font=("arial", int(0.01*w1), "bold"))
+                lblNationality.place(relx=0, rely=0.694)
 
                 lbl6 = Label(showDataFrame, text=row,
-                             font=("arial", 12))
-                lbl6.place(x=100, y=125)
+                             font=("arial", int(0.01*w1)))
+                lbl6.place(relx=0.227, rely=0.694)
 
                 # Label Contact
                 # conn = mysql.connector.connect(host="localhost", user="root", password="Admin@123",
@@ -625,12 +632,12 @@ class RoomBooking:
                 row = my_cursor.fetchone()
 
                 lblAge = Label(showDataFrame, text="Mobile No:",
-                               font=("arial", 12, "bold"))
-                lblAge.place(x=0, y=150)
+                               font=("arial", int(0.01*w1), "bold"))
+                lblAge.place(relx=0, rely=0.833)
 
                 lbl3 = Label(showDataFrame, text=row,
-                             font=("arial", 12))
-                lbl3.place(x=90, y=150)
+                             font=("arial", int(0.01*w1)))
+                lbl3.place(relx=0.204, rely=0.833)
 
     # ==========Search System==========
     def search(self):
