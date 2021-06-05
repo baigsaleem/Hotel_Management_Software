@@ -10,28 +10,35 @@ class Bill:
     def __init__(self, root):
         self.root = root
         self.root.title("Bill")
-        self.root.geometry("730x500+300+120")
+        w, h = root.winfo_screenwidth(), root.winfo_screenheight()
+        w1 = int(0.535*w)
+        h1 = int(0.652*h)
+        x = int(0.22*w)
+        y = int(0.156*h)
+        self.root.geometry("%dx%d+%d+%d" % (w1, h1, x, y))
+        # 730 500
 
         #============variables==========
         self.var_book_no=StringVar()
 
         # ===========enter cnic/passport===========
         frame_id = LabelFrame(self.root, bd=2, relief=RIDGE)
-        frame_id.place(x=170, y=0, width=400, height=37)
+        frame_id.place(relx=0.233, rely=0, width=0.548*w1, height=0.074*h1)
+        # 400 37
 
         # Booking Id
         lbl_cust_id = Label(frame_id, text="Booking No", font=(
-            "times new roman", 11, "bold"), padx=2, pady=6)
-        lbl_cust_id.grid(row=0, column=0, sticky=W)
+            "times new roman", int(0.016*w1), "bold"))
+        lbl_cust_id.place(relx=0, rely=0.15)
 
         entry_id = ttk.Entry(frame_id, width=25, textvariable=self.var_book_no, font=(
-            "arial", 10))
-        entry_id.grid(row=0, column=1, sticky=W)
+            "arial", int(0.015*w1)))
+        entry_id.place(relx=0.23, rely=0.16)
 
         # FetchBill Button
         btnFetch = Button(frame_id, text="Print Bill", command=self.gen_bill, font=(
-            "arial", 10, "bold"), bg="black", fg='gold', width=12)
-        btnFetch.place(x=280, y=1)
+            "arial", int(0.015*w1), "bold"), bg="black", fg='gold', width=int(0.016*w1))
+        btnFetch.place(relx=0.74, rely=0.09)
 
 
     def gen_bill(self):
