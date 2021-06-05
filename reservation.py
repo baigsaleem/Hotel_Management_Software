@@ -223,36 +223,39 @@ class Reservation:
 
         # ==========table frame search system=============
         table_Frame = LabelFrame(self.root, bd=2, relief=RIDGE, text="View Reservation Details & Search", font=(
-            "times new roman", 17, "bold"), padx=2,)
-        table_Frame.place(x=385, y=250, width=730, height=200)
+            "times new roman", int(0.015*w1), "bold"))
+        table_Frame.place(relx=0.34, rely=0.515, width=0.655*w1, height=0.474*h1)
+        table_Frame.update()
+        w3, h3 = table_Frame.winfo_width(), table_Frame.winfo_height()
+        # 740 230
 
         lbl_SearchBar = Label(table_Frame, text="Search By:", font=(
-            "arial", 11, "bold"), bg='red', fg='white')
-        lbl_SearchBar.grid(row=0, column=0, sticky=W, padx=2)
+            "arial", int(0.0097*w1), "bold"), bg='red', fg='white')
+        lbl_SearchBar.place(relx=0.005, rely=0.02)
 
         self.search_var = StringVar()
         combo_Search = ttk.Combobox(table_Frame, textvariable=self.search_var, font=(
-            "arial", 11, "bold"), width=15, state="readonly")
+            "arial", int(0.0097*w1), "bold"), width=int(0.0133*w1), state="readonly")
         combo_Search["value"] = ("CNIC_Passport","ReserveID","Room")
         combo_Search.current(0)
-        combo_Search.grid(row=0, column=1, padx=3)
+        combo_Search.place(relx=0.115, rely=0.02)
 
         self.search_text = StringVar()
         txt_Search = ttk.Entry(
-            table_Frame, width=30, textvariable=self.search_text, font=("arial", 11))
-        txt_Search.grid(row=0, column=2, padx=3)
+            table_Frame, width=int(0.0265*w1), textvariable=self.search_text, font=("arial", int(0.0097*w1)))
+        txt_Search.place(relx=0.3, rely=0.02)
 
         btnSearch = Button(table_Frame, text="Search", command=self.search, font=(
-            "arial", 11, "bold"), bg="black", fg='gold', width=10)
-        btnSearch.grid(row=0, column=3, padx=3)
+            "arial", int(0.0097*w1), "bold"), bg="green", fg='white', width=int(0.0088*w1))
+        btnSearch.place(relx=0.60, rely=0)
 
         btnShowAll = Button(table_Frame, text="Show All", command=self.fetch_data, font=(
-            "arial", 11, "bold"), bg="black", fg='gold', width=10)
-        btnShowAll.grid(row=0, column=4, padx=3)
+            "arial", int(0.0097*w1), "bold"), bg="green", fg='white', width=int(0.0088*w1))
+        btnShowAll.place(relx=0.72, rely=0)
 
         # ===============show booking table==============
         details_table = LabelFrame(table_Frame, bd=2, relief=RIDGE)
-        details_table.place(x=0, y=40, width=725, height=130)
+        details_table.place(relx=0, rely=0.16, width=0.99*w3, height=0.74*h3)
 
         scroll_x = ttk.Scrollbar(details_table, orient=HORIZONTAL)
         scroll_y = ttk.Scrollbar(details_table, orient=VERTICAL)
