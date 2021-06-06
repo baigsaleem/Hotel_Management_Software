@@ -28,10 +28,10 @@ class Bill:
 
         # Booking Id
         lbl_cust_id = Label(frame_id, text="Booking No", font=(
-            "times new roman", int(0.016*w1), "bold"))
+            "arial", int(0.016*w1), "bold"))
         lbl_cust_id.place(relx=0, rely=0.15)
 
-        entry_id = ttk.Entry(frame_id, width=25, textvariable=self.var_book_no, font=(
+        entry_id = ttk.Entry(frame_id, width=int(0.035*w1), textvariable=self.var_book_no, font=(
             "arial", int(0.015*w1)))
         entry_id.place(relx=0.23, rely=0.16)
 
