@@ -45,7 +45,7 @@ class RoomBooking:
 
         # ===========title=============
         lbl_title = Label(self.root, text="Room Booking", font=(
-            "times new roman", int(0.017*w1), "bold"), bg="grey", fg="gold", bd=2, relief=RIDGE)
+            "arial", int(0.017*w1), "bold"), bg="grey", fg="gold", bd=2, relief=RIDGE)
         lbl_title.place(relx=0, rely=0, width=w1, height=0.124*h1)
 
         # ========logo==============
@@ -59,7 +59,7 @@ class RoomBooking:
 
         # =============labelframe==========
         labelFrameLeftSide = LabelFrame(self.root, bd=2, relief=RIDGE, text="Booking Details", font=(
-            "times new roman", int(0.015*w1), "bold"), padx=2,)
+            "arial", int(0.015*w1), "bold"), padx=2,)
         labelFrameLeftSide.place(relx=0.0044, rely=0.124, width=0.332*w1, height=0.866*h1)
         labelFrameLeftSide.update()
         w2, h2 = labelFrameLeftSide.winfo_width(), labelFrameLeftSide.winfo_height()
@@ -68,11 +68,11 @@ class RoomBooking:
         # =========labels and entries========
         # Customer Id
         lbl_cust_id = Label(labelFrameLeftSide, text="Customer ID", font=(
-            "times new roman", int(0.0098*w1), "bold"))
+            "arial", int(0.0092*w1), "bold"))
         lbl_cust_id.place(relx=0, rely=0.013)
 
         entry_id = ttk.Entry(labelFrameLeftSide, width=int(0.0168*w1), textvariable=self.var_id, font=(
-            "arial", int(0.0098*w1)))
+            "arial", int(0.0092*w1)))
         entry_id.place(relx=0.31, rely=0.013)
 
         # FetchData Button
@@ -82,20 +82,20 @@ class RoomBooking:
 
         # Booking No
         lbl_booking_no = Label(labelFrameLeftSide, text="Booking No.", font=(
-            "times new roman", int(0.0098*w1), "bold"))
+            "arial", int(0.0092*w1), "bold"))
         lbl_booking_no.place(relx=0, rely=0.095)
 
         entry_book_no = ttk.Entry(labelFrameLeftSide, width=10, textvariable=self.var_book_no, font=(
-            "arial", int(0.0098*w1)),state="readonly")
+            "arial", int(0.0092*w1)),state="readonly")
         entry_book_no.place(relx=0.31, rely=0.095)
 
         # Customer Name
         lbl_cust_name = Label(labelFrameLeftSide, text="Customer Name", font=(
-            "times new roman", int(0.0098*w1), "bold"))
+            "arial", int(0.0092*w1), "bold"))
         lbl_cust_name.place(relx=0, rely=0.18)
 
         entry_name = ttk.Entry(labelFrameLeftSide, width=int(0.025*w1), textvariable=self.var_name, font=(
-            "arial", int(0.0098*w1)),state="readonly")
+            "arial", int(0.0092*w1)),state="readonly")
         entry_name.place(relx=0.31, rely=0.18)
 
         # Check-in date
@@ -268,7 +268,7 @@ class RoomBooking:
 
         # ==========table frame search system=============
         table_Frame = LabelFrame(self.root, bd=2, relief=RIDGE, text="View Details & Search", font=(
-            "times new roman", int(0.015*w1), "bold"))
+            "arial", int(0.015*w1), "bold"))
         table_Frame.place(relx=0.34, rely=0.515, width=0.655*w1, height=0.474*h1)
         table_Frame.update()
         w3, h3 = table_Frame.winfo_width(), table_Frame.winfo_height()
