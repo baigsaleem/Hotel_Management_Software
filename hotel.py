@@ -43,7 +43,7 @@ class HotelManagmentSystem:
 
         # ===========title=============
         lbl_title = Label(title_frame, text="WEZTEL", font=(
-            "times new roman", int(0.013*w), "bold"), bg="black", fg="gold")
+            "arial", int(0.013*w), "bold"), bg="black", fg="gold")
         lbl_title.place(relx=0.44, rely=0.09)
 
         # ===========time=============
@@ -53,14 +53,14 @@ class HotelManagmentSystem:
             lbl_time.after(1000, time)
         
         lbl_time = Label(title_frame, font=(
-            "times new roman", int(0.013*w), "bold"), bg="black", fg="gold")
-        lbl_time.place(relx=0.033, rely=0.09)
+            "arial", int(0.011*w), "bold"), bg="black", fg="gold")
+        lbl_time.place(relx=0.039, rely=0.13)
         time()
 
         # ===========Date=============
         lbl_date = Label(title_frame, text=f"{datetime.now():%a, %b %d %Y}",font=(
-            "times new roman", int(0.013*w), "bold"), bg="black", fg="gold")
-        lbl_date.place(relx=0.84, rely=0.09)
+            "arial", int(0.011*w), "bold"), bg="black", fg="gold")
+        lbl_date.place(relx=0.86, rely=0.13)
 
         # ==============mainframe=======
         main_frame = Frame(self.root, bd=4, relief=RIDGE)
@@ -71,7 +71,7 @@ class HotelManagmentSystem:
 
         # ==============menu============
         lbl_menu = Label(main_frame, text="MENU", font=(
-            "times new roman", int(0.014*w), "bold"), bg="black", fg="gold", bd=4, relief=RIDGE)
+            "arial", int(0.014*w), "bold"), bg="black", fg="gold", bd=4, relief=RIDGE)
         lbl_menu.place(relx=0, rely=0, width=0.168*w1)
 
         # ==============button frame=======
@@ -82,27 +82,27 @@ class HotelManagmentSystem:
         # 151 180
 
         cust_btn = Button(btn_frame, text="CUSTOMER", command=self.cust_details, font=(
-            "times new roman", int(0.0109*w), "bold"), bg="grey", fg="gold", bd=1, cursor="hand2")
+            "arial", int(0.01*w), "bold"), bg="grey", fg="gold", bd=1, cursor="hand2")
         cust_btn.place(relx=0, rely=0,width=int(w2*0.970), height=int(h2*0.16))
 
         booking_btn = Button(btn_frame, text="BOOKING", command=self.booking_details, font=(
-            "times new roman", int(0.0109*w), "bold"), bg="grey", fg="gold", bd=1, cursor="hand2")
+            "arial", int(0.01*w), "bold"), bg="grey", fg="gold", bd=1, cursor="hand2")
         booking_btn.place(relx=0, rely=0.167,width=int(w2*0.970), height=int(h2*0.16))
 
         reservation_btn = Button(btn_frame, text="RESERVATION", command=self.room_reservation, font=(
-            "times new roman", int(0.0109*w), "bold"), bg="grey", fg="gold", bd=1, cursor="hand2")
+            "arial", int(0.01*w), "bold"), bg="grey", fg="gold", bd=1, cursor="hand2")
         reservation_btn.place(relx=0, rely=0.334,width=int(w2*0.970), height=int(h2*0.16))
 
         details_btn = Button(btn_frame, text="ROOMS", command=self.room_details, font=(
-            "times new roman", int(0.0109*w), "bold"), bg="grey", fg="gold", bd=1, cursor="hand2")
+            "arial", int(0.01*w), "bold"), bg="grey", fg="gold", bd=1, cursor="hand2")
         details_btn.place(relx=0, rely=0.502,width=int(w2*0.970), height=int(h2*0.16))
 
         report_btn = Button(btn_frame, text="REPORT", command=self.report, font=(
-            "times new roman", int(0.0109*w), "bold"), bg="grey", fg="gold", bd=1, cursor="hand2")
+            "arial", int(0.01*w), "bold"), bg="grey", fg="gold", bd=1, cursor="hand2")
         report_btn.place(relx=0, rely=0.668,width=int(w2*0.970), height=int(h2*0.16))
 
         logout_btn = Button(btn_frame, text="LOGOUT", command=self.logout,font=(
-            "times new roman", int(0.0109*w), "bold"), bg="grey", fg="gold", bd=1, cursor="hand2")
+            "arial", int(0.01*w), "bold"), bg="grey", fg="gold", bd=1, cursor="hand2")
         logout_btn.place(relx=0, rely=0.834,width=int(w2*0.970), height=int(h2*0.16))
 
         # ===========right side image==============
@@ -121,7 +121,7 @@ class HotelManagmentSystem:
         self.photoimg4 = ImageTk.PhotoImage(img4)
 
         lblimg1 = Label(main_frame, image=self.photoimg4, bd=4, relief=RIDGE)
-        lblimg1.place(relx=0, rely=0.52, width=0.168*w1, height=0.230*h1)
+        lblimg1.place(relx=0, rely=0.53, width=0.168*w1, height=0.230*h1)
 
         img5 = Image.open(
             r"images\restaurant.jpg")
@@ -129,11 +129,11 @@ class HotelManagmentSystem:
         self.photoimg5 = ImageTk.PhotoImage(img5)
 
         lblimg1 = Label(main_frame, image=self.photoimg5, bd=4, relief=RIDGE)
-        lblimg1.place(relx=0, rely=0.72, width=0.168*w1, height=0.230*h1)
+        lblimg1.place(relx=0, rely=0.73, width=0.168*w1, height=0.230*h1)
 
         # ===========footer===============
         lbl_footer = Label(self.root, text="Software developed by Saleem Baig, CEO NrewSoft... Copyright 2021", font=(
-            "times new roman", int(0.0088*w)), bg="black", fg="gold", bd=4, relief=RIDGE)
+            "arial", int(0.008*w)), bg="black", fg="gold", bd=4, relief=RIDGE)
         lbl_footer.place(relx=0, rely=0.95, width=w, height=0.052*h)
 
     def cust_details(self):
