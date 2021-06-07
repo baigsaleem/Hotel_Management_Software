@@ -8,33 +8,40 @@ class Report:
     def __init__(self, root):
         self.root = root
         self.root.title("Report")
-        self.root.geometry("300x300+300+205")
+        w, h = root.winfo_screenwidth(), root.winfo_screenheight()
+        # w,h=1000,600
+        w1 = int(0.22*w)
+        h1 = int(0.39*h)
+        x = int(0.22*w)
+        y = int(0.267*h)
+        self.root.geometry("%dx%d+%d+%d" % (w1, h1, x, y))
+        # 300 300
 
         # ===========title=============
         bill_title = Label(self.root, text="Reports", font=(
-            "times new roman", 20, "bold","underline"), bd=0, relief=RIDGE, bg="grey")
-        bill_title.place(x=0, y=0, width=300, height=40)
+            "times new roman", int(0.067*w1), "bold","underline"), bd=0, relief=RIDGE, bg="grey")
+        bill_title.place(relx=0, rely=0, width=w1, height=int(0.134*h1))
 
     
         # Customer table Button
         btnFetch = Button(self.root, text="Export Customer Table", command=self.export("customer"), font=(
-            "arial", 10, "bold"), bg="black", fg='gold', width=20)
-        btnFetch.place(x=70, y=50)
+            "arial", int(0.034*w1), "bold"), bg="black", fg='gold', width=int(0.067*w1))
+        btnFetch.place(relx=0.234, rely=0.167)
 
         # Booking table Button
         btnFetch = Button(self.root, text="Export Booking Table", command=self.export("booking"), font=(
-            "arial", 10, "bold"), bg="black", fg='gold', width=20)
-        btnFetch.place(x=70, y=100)
+            "arial", int(0.034*w1), "bold"), bg="black", fg='gold', width=int(0.067*w1))
+        btnFetch.place(relx=0.234, rely=0.334)
 
         # Reservation table Button
         btnFetch = Button(self.root, text="Export Reservation Table", command=self.export("reservation"), font=(
-            "arial", 10, "bold"), bg="black", fg='gold', width=20)
-        btnFetch.place(x=70, y=150)
+            "arial", int(0.034*w1), "bold"), bg="black", fg='gold', width=int(0.067*w1))
+        btnFetch.place(relx=0.234, rely=0.5)
 
         # ===========Message=============
         bill_title = Label(self.root, text="Please check the root folder for the report table \nin Excel file format", font=(
-            "times new roman", 12), bd=0, relief=RIDGE)
-        bill_title.place(x=5, y=200)
+            "times new roman", int(0.04*w1)), bd=0, relief=RIDGE)
+        bill_title.place(relx=0.017, rely=0.667)
 
 
     def export(self,table_name):
