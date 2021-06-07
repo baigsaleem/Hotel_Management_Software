@@ -45,7 +45,7 @@ class RoomBooking:
 
         # ===========title=============
         lbl_title = Label(self.root, text="Room Booking", font=(
-            "arial", int(0.017*w1), "bold"), bg="grey", fg="gold", bd=2, relief=RIDGE)
+            "times new roman", int(0.017*w1), "bold"), bg="grey", fg="gold", bd=2, relief=RIDGE)
         lbl_title.place(relx=0, rely=0, width=w1, height=0.124*h1)
 
         # ========logo==============
@@ -59,7 +59,7 @@ class RoomBooking:
 
         # =============labelframe==========
         labelFrameLeftSide = LabelFrame(self.root, bd=2, relief=RIDGE, text="Booking Details", font=(
-            "arial", int(0.015*w1), "bold"), padx=2,)
+            "times new roman", int(0.015*w1), "bold"), padx=2,)
         labelFrameLeftSide.place(relx=0.0044, rely=0.124, width=0.332*w1, height=0.866*h1)
         labelFrameLeftSide.update()
         w2, h2 = labelFrameLeftSide.winfo_width(), labelFrameLeftSide.winfo_height()
@@ -268,7 +268,7 @@ class RoomBooking:
 
         # ==========table frame search system=============
         table_Frame = LabelFrame(self.root, bd=2, relief=RIDGE, text="View Details & Search", font=(
-            "arial", int(0.015*w1), "bold"))
+            "times new roman", int(0.015*w1), "bold"))
         table_Frame.place(relx=0.34, rely=0.515, width=0.655*w1, height=0.474*h1)
         table_Frame.update()
         w3, h3 = table_Frame.winfo_width(), table_Frame.winfo_height()
