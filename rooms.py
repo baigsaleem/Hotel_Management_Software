@@ -13,93 +13,103 @@ class DetailsRoom:
     def __init__(self, root):
         self.root = root
         self.root.title("Rooms Info")
-        self.root.geometry("1120x460+237+205")
+        w, h = root.winfo_screenwidth(), root.winfo_screenheight()
+        # w,h=1000,600
+        w1 = int(0.8275*w)
+        h1 = int(0.632*h)
+        x = int(0.165*w)
+        y = int(0.235*h)
+        self.root.geometry("%dx%d+%d+%d" % (w1, h1, x, y))
+        # 1130 485
 
         # ===========title=============
         lbl_title = Label(self.root, text="Room Booking Details", font=(
-            "times new roman", 20, "bold"), bg="grey", fg="gold", bd=2, relief=RIDGE)
-        lbl_title.place(x=0, y=0, width=1120, height=60)
+            "times new roman", int(0.0177*w1), "bold"), bg="grey", fg="gold", bd=2, relief=RIDGE)
+        lbl_title.place(relx=0, rely=0, width=w1, height=0.124*h1)
 
         # ========logo==============
         img2 = Image.open(
             r"images/logo.png")
-        img2 = img2.resize((60, 60), Image.ANTIALIAS)
+        img2 = img2.resize((int(0.053*w1), int(0.124*h1)), Image.ANTIALIAS)
         self.photoimg2 = ImageTk.PhotoImage(img2)
 
         lblimg = Label(self.root, image=self.photoimg2, bd=2, relief=RIDGE)
-        lblimg.place(x=0, y=0, width=80, height=60)
+        lblimg.place(relx=0, rely=0, width=0.070*w1, height=0.124*h1)
 
         # =============labelframe==========
         labelFrameLeftSide = LabelFrame(self.root, bd=2, relief=RIDGE, text="New Room Add", font=(
-            "times new roman", 17, "bold"), padx=2,)
-        labelFrameLeftSide.place(x=5, y=60, width=440, height=395)
+            "times new roman", int(0.015*w1), "bold"))
+        labelFrameLeftSide.place(relx=0.0044, rely=0.124, width=0.389*w1, height=0.866*h1)
+        labelFrameLeftSide.update()
+        w2, h2 = labelFrameLeftSide.winfo_width(), labelFrameLeftSide.winfo_height()
+        # 440 420
 
         # Floor
         lbl_floor = Label(labelFrameLeftSide, text="Floor", font=(
-            "times new roman", 12, "bold"), padx=2, pady=6)
-        lbl_floor.grid(row=0, column=0, sticky=W)
+            "arial", int(0.0106*w1), "bold"))
+        lbl_floor.place(relx=0.04, rely=0)
 
         self.var_floor = StringVar()
-        entry_floor = ttk.Entry(labelFrameLeftSide, width=18, textvariable=self.var_floor, font=(
-            "arial", 12))
-        entry_floor.grid(row=0, column=1, sticky=W)
+        entry_floor = ttk.Entry(labelFrameLeftSide, width=int(0.016*w1), textvariable=self.var_floor, font=(
+            "arial", int(0.0106*w1)))
+        entry_floor.place(relx=0.25, rely=0)
 
         # Room No
         lbl_RoomNo = Label(labelFrameLeftSide, text="Room No.", font=(
-            "times new roman", 12, "bold"), padx=2, pady=6)
-        lbl_RoomNo.grid(row=1, column=0, sticky=W)
+            "arial", int(0.0106*w1), "bold"))
+        lbl_RoomNo.place(relx=0.04, rely=0.09)
 
         self.var_roomNo = StringVar()
-        entry_RoomNo = ttk.Entry(labelFrameLeftSide, width=18, textvariable=self.var_roomNo, font=(
-            "arial", 12))
-        entry_RoomNo.grid(row=1, column=1, sticky=W)
+        entry_RoomNo = ttk.Entry(labelFrameLeftSide, width=int(0.016*w1), textvariable=self.var_roomNo, font=(
+            "arial", int(0.0106*w1)))
+        entry_RoomNo.place(relx=0.25, rely=0.09)
 
         # Room Type
         lbl_RoomType = Label(labelFrameLeftSide, text="Room Type", font=(
-            "times new roman", 12, "bold"), padx=2, pady=6)
-        lbl_RoomType.grid(row=2, column=0, sticky=W)
+            "arial", int(0.0106*w1), "bold"))
+        lbl_RoomType.place(relx=0.04, rely=0.18)
 
         self.var_RoomType = StringVar()
-        entry_RoomType = ttk.Entry(labelFrameLeftSide, width=18, textvariable=self.var_RoomType, font=(
-            "arial", 12))
-        entry_RoomType.grid(row=2, column=1, sticky=W)
+        entry_RoomType = ttk.Entry(labelFrameLeftSide, width=int(0.016*w1), textvariable=self.var_RoomType, font=(
+            "arial", int(0.0106*w1)))
+        entry_RoomType.place(relx=0.25, rely=0.18)
 
         # No of Beds
         lbl_NoOfBeds = Label(labelFrameLeftSide, text="No. of Beds", font=(
-            "times new roman", 12, "bold"), padx=2, pady=6)
-        lbl_NoOfBeds.grid(row=3, column=0, sticky=W)
+            "arial", int(0.0106*w1), "bold"))
+        lbl_NoOfBeds.place(relx=0.04, rely=0.27)
 
         self.var_NoOfBeds = StringVar()
-        entry_NoOfBeds = ttk.Entry(labelFrameLeftSide, width=18, textvariable=self.var_NoOfBeds, font=(
-            "arial", 12))
-        entry_NoOfBeds.grid(row=3, column=1, sticky=W)
-
+        entry_NoOfBeds = ttk.Entry(labelFrameLeftSide, width=int(0.016*w1), textvariable=self.var_NoOfBeds, font=(
+            "arial", int(0.0106*w1)))
+        entry_NoOfBeds.place(relx=0.25, rely=0.27)
 
 
         # =============buttons==============
         btn_frame = LabelFrame(labelFrameLeftSide, bd=2, relief=RIDGE)
-        btn_frame.place(x=0, y=150, width=380, height=40)
+        btn_frame.place(relx=0, rely=0.40, width=int(0.99*w2), height=int(0.095*h2))
+        # 380 39
 
         btnAdd = Button(btn_frame, text="Add", command=self.add_data, font=(
-            "arial", 12, "bold"), bg="black", fg='gold', width=8)
-        btnAdd.grid(row=0, column=0, padx=2)
+            "arial", int(0.0106*w1), "bold"), bg="black", fg='gold', width=int(0.009*w1))
+        btnAdd.place(relx=0, rely=0.05)
 
         btnUpdate = Button(btn_frame, text="Update", command=self.update, font=(
-            "arial", 12, "bold"), bg="black", fg='gold', width=8)
-        btnUpdate.grid(row=0, column=1, padx=2)
+            "arial", int(0.0106*w1), "bold"), bg="black", fg='gold', width=int(0.009*w1))
+        btnUpdate.place(relx=0.25, rely=0.05)
 
         btnDelete = Button(btn_frame, text="Delete", command=self.delete_room_detail, font=(
-            "arial", 12, "bold"), bg="black", fg='gold', width=8)
-        btnDelete.grid(row=0, column=2, padx=2)
+            "arial", int(0.0106*w1), "bold"), bg="black", fg='gold', width=int(0.009*w1))
+        btnDelete.place(relx=0.50, rely=0.05)
 
         btnReset = Button(btn_frame, text="Reset", command=self.reset, font=(
-            "arial", 12, "bold"), bg="black", fg='gold', width=8)
-        btnReset.grid(row=0, column=3, padx=2)
+            "arial", int(0.0106*w1), "bold"), bg="black", fg='gold', width=int(0.009*w1))
+        btnReset.place(relx=0.75, rely=0.05)
 
         # ==========table for room details=============
         table_Frame = LabelFrame(self.root, bd=2, relief=RIDGE, text="Show Room Details", font=(
-            "times new roman", 17, "bold"), padx=2,)
-        table_Frame.place(x=470, y=60, width=645, height=395)
+            "times new roman", int(0.015*w1), "bold"))
+        table_Frame.place(relx=0.416, rely=0.124, width=int(0.575*w1), height=int(0.866*h1))
 
         scroll_x = ttk.Scrollbar(table_Frame, orient=HORIZONTAL)
         scroll_y = ttk.Scrollbar(table_Frame, orient=VERTICAL)
