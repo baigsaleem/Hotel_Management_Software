@@ -43,7 +43,7 @@ class HotelManagmentSystem:
 
         # ===========title=============
         lbl_title = Label(title_frame, text="WEZTEL", font=(
-            "arial", int(0.013*w), "bold"), bg="black", fg="gold")
+            "times new roman", int(0.015*w), "bold"), bg="black", fg="gold")
         lbl_title.place(relx=0.44, rely=0.09)
 
         # ===========time=============
@@ -71,7 +71,7 @@ class HotelManagmentSystem:
 
         # ==============menu============
         lbl_menu = Label(main_frame, text="MENU", font=(
-            "arial", int(0.014*w), "bold"), bg="black", fg="gold", bd=4, relief=RIDGE)
+            "times new roman", int(0.014*w), "bold"), bg="black", fg="gold", bd=4, relief=RIDGE)
         lbl_menu.place(relx=0, rely=0, width=0.168*w1)
 
         # ==============button frame=======
