@@ -44,7 +44,7 @@ class Reservation:
 
         # ===========title=============
         lbl_title = Label(self.root, text="Room Reservation", font=(
-            "arial", int(0.0177*w1), "bold"), bg="grey", fg="gold", bd=2, relief=RIDGE)
+            "times new roman", int(0.0177*w1), "bold"), bg="grey", fg="gold", bd=2, relief=RIDGE)
         lbl_title.place(relx=0, rely=0, width=w1, height=0.124*h1)
 
         # ========logo==============
@@ -58,7 +58,7 @@ class Reservation:
 
         # =============labelframe==========
         labelFrameLeftSide = LabelFrame(self.root, bd=2, relief=RIDGE, text="Reservation Details", font=(
-            "arial", int(0.015*w1), "bold"), padx=2,)
+            "times new roman", int(0.015*w1), "bold"), padx=2,)
         labelFrameLeftSide.place(relx=0.0044, rely=0.124, width=0.332*w1, height=0.866*h1)
         labelFrameLeftSide.update()
         w2, h2 = labelFrameLeftSide.winfo_width(), labelFrameLeftSide.winfo_height()
