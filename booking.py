@@ -17,7 +17,9 @@ class RoomBooking:
         # self.root.geometry("1130x485+225+180")
         w, h = root.winfo_screenwidth(), root.winfo_screenheight()
         # w,h=1000,600
+        global w1
         w1 = int(0.8275*w)
+        global h1
         h1 = int(0.632*h)
         x = int(0.165*w)
         y = int(0.235*h)
@@ -488,11 +490,6 @@ class RoomBooking:
 
     # ===========All data fetch=============
     def Fetch_Id(self):
-        w, h = root.winfo_screenwidth(), root.winfo_screenheight()
-        # w,h=1000,600
-        w1 = int(0.8275*w)
-        h1 = int(0.632*h)
-
         if self.var_id.get() == "":
             messagebox.showerror(
                 "Error", "Please enter CNIC/Passport No.", parent=self.root)
