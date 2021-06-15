@@ -56,6 +56,12 @@ class Reserve_Card:
             
             textarea.delete(1.0,END)
 
+            # ===========Hotel Name and Adress=============
+            textarea.insert(END,'\n\tHotel Management Hotel & Resort\n')
+            textarea.insert(END,'\tNear Attabad Lake, on Main Karakorum Highway\n')
+            textarea.insert(END,'\tP.O & Village Gulmit Gojal, District Hunza\n')
+            textarea.insert(END,'\tZip Code:15100\t\tContact:0345-1111111\n\n')
+
             # ===========title=============
             textarea.insert(END,'\n\t\t\tRESERVATION CARD\n\n\n')
 
@@ -72,7 +78,7 @@ class Reserve_Card:
             textarea.insert(END,f'Reservation No:{row}')
 
             # #=============date==============
-            textarea.insert(END,f'\t\t\tDate:{datetime.now():%b %d, %Y}\n\n')
+            textarea.insert(END,f'\t\t\tDate:{datetime.now():%b %d, %Y}\n')
 
             # line Break
             textarea.insert(END,f'============================================================\n\n')
