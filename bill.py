@@ -60,7 +60,14 @@ class Bill:
             # bill_title = Label(textarea, text="Reciept", font=(
             #     "times new roman", 20, "bold","underline"), bd=0, relief=RIDGE, bg="white")
             # bill_title.place(x=0, y=30, width=460, height=40)
-            textarea.insert(END,'\n\t\t\t\tRECIEPT\n\n\n')
+
+            # ===========Hotel Name and Adress=============
+            textarea.insert(END,'\n\tHotel Management Hotel & Resort\n')
+            textarea.insert(END,'\tNear Attabad Lake, on Main Karakorum Highway\n')
+            textarea.insert(END,'\tP.O & Village Gulmit Gojal, District Hunza\n')
+            textarea.insert(END,'\tZip Code:15100\t\tContact:0345-1111111\n')
+
+            textarea.insert(END,'\n\n\t\t\tRECIEPT\n\n\n')
 
             # # ============logo=============
             # img = Image.open(r"/Hotel_Management_Software/images/logo.png")
